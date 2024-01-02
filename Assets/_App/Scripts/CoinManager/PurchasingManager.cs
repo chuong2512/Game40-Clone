@@ -6,7 +6,7 @@ public class PurchasingManager : MonoBehaviour
 {
    public void OnPressDown(int i)
    {
-      switch (i)
+      /*switch (i)
       {
          case 1:
             IAPManager.OnPurchaseSuccess = () => 
@@ -28,7 +28,7 @@ public class PurchasingManager : MonoBehaviour
             GameDataManager.Instance.playerData.AddDiamond(10);
             IAPManager.Instance.BuyProductID(Key.PACK4);
             break;
-      }
+      }*/
    }
 
    public void Sub(int i)
