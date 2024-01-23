@@ -24,8 +24,26 @@ public class PlayerData : BaseData
     public Action<int> onChangePoint;
     public int level;
 
+    public long time;
+    public string timeRegister;
+
+    public void SetTimeRegister(long timeSet)
+    {
+        timeRegister = DateTime.Now.ToBinary().ToString();
+        time = timeSet;
+        Save();
+    }
+
+    public void ResetTime()
+    {
+        time = 0;
+        Save();
+    }
+    
     public override void Init()
     {
+        timeRegister = DateTime.Now.ToBinary().ToString();
+        time = 0;
         prefString = Constant.DataKey_PlayerData;
         if (PlayerPrefs.GetString(prefString).Equals(""))
         {

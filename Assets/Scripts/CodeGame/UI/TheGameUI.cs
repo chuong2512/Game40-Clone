@@ -28,12 +28,14 @@ public class TheGameUI : Singleton<TheGameUI>
     void Start()
     {
         SetState(State.Drawing);
-        
+
         levelTMP.SetText($"LEVEL {GameDataManager.Instance.playerData.level}");
     }
 
     public void ShowLose()
     {
+        QuangCao.Instance.PhatQuangCao();
+        
         StopAllCoroutines();
         SetState(State.Pause);
         lose.SetActive(true);
@@ -41,6 +43,8 @@ public class TheGameUI : Singleton<TheGameUI>
 
     public void ShowWin()
     {
+        QuangCao.Instance.PhatQuangCao();
+        
         StopAllCoroutines();
         SetState(State.Pause);
         win.SetActive(true);
@@ -60,19 +64,14 @@ public class TheGameUI : Singleton<TheGameUI>
     {
         if (GameDataManager.Instance.playerData.SubDiamond(1))
         {
-            
-           NextGameWin();
+            NextGameWin();
         }
-        
     }
-        
-        public void NextGameWin()
-    {
 
-            GameDataManager.Instance.playerData.UpLevel();
-            SceneManager.LoadScene("Game");
-        
-        
+    public void NextGameWin()
+    {
+        GameDataManager.Instance.playerData.UpLevel();
+        SceneManager.LoadScene("Game");
     }
 
     [Button]
